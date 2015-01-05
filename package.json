@@ -1,0 +1,37 @@
+{
+  "name": "collective-upload",
+  "version": "1.0.0",
+  "description": "Simple proof-of-concept application that can upload assets to the Widen Media Collective",
+  "main": "index.js",
+  "bin": {
+    "collective-upload": "./bin/collective-upload"
+  },
+  "scripts": {
+    "style": "jshint index.js",
+    "test": "echo \"browserify test/all-test.js | testling\" && exit 0",
+    "coverage": "echo \"browserify --debug -t coverify test/all-test.js | node | coverify\" && exit 0",
+    "watch": "nodemon -w index.js -w lib -x 'npm run dev'",
+    "dev": "browserify index.js --debug --standalone collective | exorcist ./static/bundle.map.js > static/bundle.js",
+    "build": "browserify index.js --standalone collective_instant > static/bundle.js && cat static/bundle.js | uglifyjs > static/bundle.min.js",
+    "start": "collective-oauth-server",
+    "prepublish": "npm run build"
+  },
+  "author": "Mark Feltner",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^7.0.0",
+    "collective-oauth-server": "^1.0.1",
+    "exorcist": "^0.1.6",
+    "nodemon": "^1.2.1",
+    "uglify-js": "^2.4.15"
+  },
+  "dependencies": {
+    "bistre": "^1.0.1",
+    "bole": "^1.0.0",
+    "console-stream": "^0.1.1",
+    "cookie-cutter": "^0.1.1",
+    "detect-dom-ready": "^1.0.2",
+    "media-collective": "^1.1.0",
+    "uuid": "^2.0.1"
+  }
+}
