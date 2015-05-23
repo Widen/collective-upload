@@ -12,7 +12,7 @@
     "coverage": "echo \"browserify --debug -t coverify test/all-test.js | node | coverify\" && exit 0",
     "watch": "nodemon -w index.js -w lib -x 'npm run dev'",
     "dev": "browserify index.js --debug --standalone collective | exorcist ./static/bundle.map.js > static/bundle.js",
-    "build": "browserify index.js --standalone collective_instant > static/bundle.js && cat static/bundle.js | uglifyjs > static/bundle.min.js",
+    "build": "browserify index.js --standalone collective_upload > static/bundle.js && cat static/bundle.js | uglifyjs > static/bundle.min.js",
     "start": "collective-oauth-server",
     "prepublish": "npm run build"
   },
