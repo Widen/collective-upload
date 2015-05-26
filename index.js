@@ -31,9 +31,9 @@ dom_ready(function domready() {
 
     var access_token = cookie.get('access_token');
     var collective_options = {
-        protocol: 'http',
-        port: 8080,
-        host: 'localhost',
+        protocol: process.env.COLLECTIVE_PROTOCOL||'https',
+        port: process.env.COLLECTIVE_PORT||8443,
+        host: process.env.COLLECTIVE_HOST||'localhost',
         auth: {
             type: 'bearer',
             bearer: access_token

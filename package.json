@@ -11,8 +11,8 @@
     "test": "echo \"browserify test/all-test.js | testling\" && exit 0",
     "coverage": "echo \"browserify --debug -t coverify test/all-test.js | node | coverify\" && exit 0",
     "watch": "nodemon -w index.js -w lib -x 'npm run dev'",
-    "dev": "browserify index.js --debug --standalone collective | exorcist ./static/bundle.map.js > static/bundle.js",
-    "build": "browserify index.js --standalone collective_upload > static/bundle.js && cat static/bundle.js | uglifyjs > static/bundle.min.js",
+    "dev": "browserify index.js --debug --standalone collective -t envify | exorcist ./static/bundle.map.js > static/bundle.js",
+    "build": "browserify index.js --standalone collective_upload -t envify > static/bundle.js && cat static/bundle.js | uglifyjs > static/bundle.min.js",
     "start": "collective-oauth-server",
     "prepublish": "npm run build"
   },
@@ -21,6 +21,7 @@
   "devDependencies": {
     "browserify": "^7.0.0",
     "collective-oauth-server": "^1.0.1",
+    "envify": "^3.4.0",
     "exorcist": "^0.1.6",
     "nodemon": "^1.2.1",
     "uglify-js": "^2.4.15"
