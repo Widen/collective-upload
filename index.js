@@ -81,7 +81,7 @@ dom_ready(function domready() {
                         return collective.json('GET', '/asset/uuid/:uuid', {
                             uuid: uuid
                         }, collective_options).then(resolve, reject);
-                    }, 5000);
+                    }, 10000);
                 });
             }).then(function(res){
                 app.innerHTML = '<h1>Done</h1>';
