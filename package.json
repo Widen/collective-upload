@@ -1,6 +1,6 @@
 {
   "name": "collective-upload",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple proof-of-concept application that can upload assets to the Widen Media Collective",
   "main": "index.js",
   "bin": {
